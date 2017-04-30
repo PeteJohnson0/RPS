@@ -1,74 +1,63 @@
 
 $( document ).ready(function() {
- 
+
 var enemyAnswer = ''
 
-        $(".rock").click(function () {
-        $('.playerGenerated').empty();
-        $('.computerGenerated').empty();
-        $('.playerGenerated').html('<img class="rock" src="http://1000awesomethings.com/wp-content/uploads/2008/08/rock.jpg" height="50px" width="50px"/>')
+        $("#rock").click(function () {
         var playerInput = "rock"
         randomMe();
-        compareAnswers(playerInput, enemyAnswer)
+        compareAnswers(playerInput, enemyAnswer);
     });
 
-        $(".paper").click(function () {
-        $('.playerGenerated').empty();
-        $('.computerGenerated').empty();
-        $('.playerGenerated').html('<img class="rock" src="http://1000awesomethings.com/wp-content/uploads/2008/08/paper.jpg" height="50px" width="50px"/>')
+        $("#paper").click(function () {
         var playerInput = "paper"
         randomMe();
         compareAnswers(playerInput, enemyAnswer)
     });
 
-        $('.scissors').click(function () {
-        $('.playerGenerated').empty();
-        $('.computerGenerated').empty();
-        $('.playerGenerated').html('<img class="rock" src="http://1000awesomethings.com/wp-content/uploads/2008/08/scissors.jpg" height="50px" width="50px"/>')
+        $('#scissors').click(function() {
         var playerInput = "scissors"
         randomMe();
         compareAnswers(playerInput, enemyAnswer)
     });
 
-    function randomMe () {
-    var randomRPS = Math.floor(Math.random() * 3 )  
-    console.log(randomRPS)
-    switch (randomRPS) {
-        case 0:
-            enemyAnswer = "rock";
-            $('.computerGenerated').html('<img src="http://1000awesomethings.com/wp-content/uploads/2008/08/rock.jpg" height="50px" width="50px"/>')
-            break;
-        case 1: 
-            enemyAnswer = "paper";
-             $('.computerGenerated').html('<img src="http://1000awesomethings.com/wp-content/uploads/2008/08/paper.jpg" height="50px" width="50px"/>')
-             break;
-        case 2:
-            enemyAnswer = "scissors";
-            $('.computerGenerated').html('<img src="http://1000awesomethings.com/wp-content/uploads/2008/08/scissors.jpg" height="50px" width="50px"/>')
+    $("#clearBtn").click( function() {
+        $("#list").empty()
+    })
 
-            break; 
+    var randomMe = function() {
+        var randomRPS = Math.floor(Math.random() * 3 )  
+        switch (randomRPS) {
+            case 0:
+                enemyAnswer = "rock";
+                break;
+            case 1: 
+                enemyAnswer = "paper";
+                break;
+            case 2:
+                enemyAnswer = "scissors";
+                break; 
         }  
     }
 
-    var compareAnswers = function(playerInput, enemyAnswer) {
-        var sendToScreen
+    var compareAnswers = function(playerInput, enemyAnswer) {        
         if(playerInput === enemyAnswer) {
-           sendToScreen = 'Player: ' + playerInput + ' vs ' + 'Computer: ' + enemyAnswer +  ' - Draw'
+            $("ul").append('<li><p align="left">TIE</p></li>')           
         } else if (playerInput == "rock" && enemyAnswer == "paper") {
-           sendToScreen = 'Player: ' + playerInput + ' vs ' + 'Computer: ' + enemyAnswer + ' - Computer Wins'
+            $("ul").append('<li><div id="winner" class="inlineImage"><i class="fa fa-hand-rock-o fa-2x" style="color:red"></i></div><div class="inlineImage"><i class="fa fa-hand-paper-o fa-2x" aria-hidden="true"></i></div</li>')
         } else if (playerInput == "rock" && enemyAnswer == 'scissors') {
-           sendToScreen = 'Player: ' + playerInput + ' vs ' + 'Computer: ' + enemyAnswer + ' - You Win'
+            $("ul").append('<li><div id="loser" class="inlineImage""><i class="fa fa-hand-rock-o fa-2x" style="color:green"></i></div><div class="inlineImage"><i class="fa fa-hand-scissors-o fa-2x" aria-hidden="true"></i></div</li>')
         } else if (playerInput == "paper" && enemyAnswer == "rock") {
-           sendToScreen = 'Player: ' + playerInput + ' vs ' + 'Computer: ' + enemyAnswer + ' - You Win'
+            $("ul").append('<li><div id="winner" class="inlineImage"><i class="fa fa-hand-paper-o fa-2x" style="color:green"></i></div><div class="inlineImage"><i class="fa fa-hand-rock-o fa-2x" aria-hidden="true"></i></div</li>')
         } else if (playerInput == "paper" && enemyAnswer == "scissors") {
-           sendToScreen = 'Player: ' + playerInput + ' vs ' + 'Computer: ' + enemyAnswer + ' - Computer Wins'
+            $("ul").append('<li><div id="loser" class="inlineImage"><i class="fa fa-hand-paper-o fa-2x" style="color:red"></i></div><div class="inlineImage"><i class="fa fa-hand-scissors-o fa-2x" aria-hidden="true"></i></div</li>')
         } else if (playerInput == "scissors" && enemyAnswer == "rock") {
-           sendToScreen = 'Player: ' + playerInput + ' vs ' + 'Computer: ' + enemyAnswer + ' - Computer Wins'
+            $("ul").append('<li><div id="loser" class="inlineImage"><i class="fa fa-hand-scissors-o fa-2x" style="color:red"></i></div><div class="inlineImage"><i class="fa fa-hand-rock-o fa-2x" aria-hidden="true"></i></div</li>')
         } else if (playerInput == "scissors" && enemyAnswer == "paper") {
-            sendToScreen = 'Player: ' + playerInput + ' vs ' + 'Computer: ' + enemyAnswer + ' - You Win'
+            $("ul").append('<li><div id="winner" class="inlineImage"><i class="fa fa-hand-scissors-o fa-2x" style="color:green"></i></div><div class="inlineImage"><i class="fa fa-hand-paper-o fa-2x" aria-hidden="true"></i></div</li>')
         }
-        return $("#list").append("<li>" + sendToScreen + "</li>");
     };
+    
     
     $('#clear').click( function() {
         $("#list").empty();

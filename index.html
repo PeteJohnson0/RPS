@@ -1,25 +1,37 @@
-<html>
-    <head>        
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="style.css">
+
     </head>
     <body>
-        <div>
-            <h1>Player 1</h1>
-            <img class="rock" src="http://1000awesomethings.com/wp-content/uploads/2008/08/rock.jpg" height="50px" width="50px"/>
-            <img class="paper" src="http://1000awesomethings.com/wp-content/uploads/2008/08/paper.jpg" height="50px" width="50px"/>
-            <img class="scissors" src="http://1000awesomethings.com/wp-content/uploads/2008/08/scissors.jpg" height="50px" width="50px"/>
-               <ul>
-                <li> HELLLLLLLO </li>
-            </ul>
-            <div class='computerGenerated'></div>
-            <ul>
-                <li> HELLLLLLLO </li>
-            </ul>
-            <div class='playerGenerated'></div>
-            <ul id="list">
-            </ul>
-            <button id="clear">Clear</button>
+        <div class="container">
+            <div>
+               <div class="row">
+                    <div class="col s2">
+                        <h3>Results</h3>
+                        <ul id="list">
+                        </ul>
+                        <button id="clearBtn" type="button" class="btn btn-info">Clear</button>
+                    </div>
+                    <div class="col s10">
+                        <div class="rps">
+                            <i id="rock" class="fa fa-hand-rock-o fa-5x" aria-hidden="true"></i>
+                            <i id="paper" class="fa fa-hand-paper-o fa-5x" aria-hidden="true"></i>
+                            <i id="scissors" class="fa fa-hand-scissors-o fa-5x" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script src="https://code.jquery.com/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+            <script src='app.js'></script>
         </div>
-        <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
-        <script src='app.js'></script>
     </body>
 </html>

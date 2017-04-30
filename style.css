@@ -1,0 +1,38 @@
+p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    margin:0;
+    padding:0; 
+    font-weight: bold;
+    padding-left: 100px;
+}
+
+.inlineImage {
+display: inline-block;
+}
+
+h3 {
+    color: grey;
+}
+
+#clearBtn {
+    width: 16.6666666667%;
+    position:absolute;
+    bottom:0;
+}
+
+p {
+    margin:0;
+    padding:0; 
+    font-weight: bold;   
+}
+
+.rps {
+  position: absolute;
+  width: 300px;
+  height: 200px;
+  z-index: 15;
+  top: 50%;
+  left: 50%;
+  margin: -100px 0 0 -150px;
+}
